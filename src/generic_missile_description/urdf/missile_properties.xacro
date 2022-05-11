@@ -9,11 +9,11 @@
     <xacro:property name="fin_wide" value="0.3" />
     <xacro:property name="fin_height" value="0.2" />
 
-    <xacro:property name="fin_mass" value="0.1" />
-    <xacro:property name="finhold_mass" value="0.05" />
+    <xacro:property name="fin_mass" value="0.001" />
+    <xacro:property name="finhold_mass" value="0.3" />
     <xacro:property name="wing_mass" value="0.3" />
     <xacro:property name="body_mass" value="1" />
-    <xacro:property name="head_mass" value="0.2" />
+    <xacro:property name="head_mass" value="0.001" />
 
     <material name="white">
         <color rgba="1 1 1 1" />

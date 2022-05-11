@@ -5,15 +5,14 @@
     <xacro:include filename="missile_properties.xacro"/>
     
     <!-- base link -->
-    <link name="base_link"/>
+    <!-- <link name="base_link"/> -->
 
     <!-- missile main body -->
-    <joint name="missile_joint" type="fixed">
+    <!-- <joint name="missile_joint" type="fixed">
         <parent link="base_link"/>
         <child link="missile_body"/>
-        <!-- <origin xyz="0 0 1.5" rpy="0 0 0"/> -->
-        <!-- <axis xyz="0 0 0"/> -->
-    </joint>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint> -->
     <link name="missile_body">
         <visual>
             <origin xyz="0 0 ${missile_length/2}"/>
@@ -29,12 +28,9 @@
             </geometry>
         </collision>
         <xacro:inertial_cylinder mass="1.0" length="${missile_length}" radius="${missile_radius}">
-            <origin xyz="${missile_length/2} 0 0" rpy="0 ${pi/2} 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
-    <gazebo reference="missile_body">
-        <material>Gazebo/White</material>
-    </gazebo>
 
     <!-- head missile -->
     <joint name="head_joint" type="fixed">
@@ -61,6 +57,6 @@
     </link>
 
     <xacro:include filename="wings_group.xacro"/>
-    <xacro:include filename="fins_group.xacro"/>
+    <!-- <xacro:include filename="fins_group.xacro"/> -->
 
 </robot>

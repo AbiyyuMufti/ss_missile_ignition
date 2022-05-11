@@ -16,7 +16,7 @@
             </geometry>
         </collision>
         <xacro:inertial_box mass="${finhold_mass}" x="${finhold_height}" y="${wing_thickness}" z="${fin_wide}">
-            <origin xyz="${finhold_height/2} 0 0" rpy="0 0 0"/>
+            <origin xyz="${finhold_height/2} 0 ${fin_wide/2}" rpy="0 0 0"/>
         </xacro:inertial_box>
     </xacro:macro>
 
@@ -36,7 +36,7 @@
             <material name="orange"/>
         </collision>
         <xacro:inertial_box mass="${fin_mass}" x="${fin_height}" y="${wing_thickness}" z="${fin_wide}">
-            <origin xyz="${fin_height/2} 0 0" rpy="0 0 0"/>
+            <origin xyz="${fin_height/2} 0 ${fin_wide/2}" rpy="0 0 0"/>
         </xacro:inertial_box>
     </xacro:macro>
 
@@ -51,9 +51,6 @@
     <link name="finhold_1">
         <xacro:finhold_body_desc />
     </link>/>
-    <gazebo reference="finhold_1">
-        <material>Gazebo/Red</material>
-    </gazebo>
 
     <!-- 2nd fin holder -->
     <joint name="finhold_2_joint" type="revolute">
@@ -66,9 +63,6 @@
     <link name="finhold_2">
         <xacro:finhold_body_desc />
     </link>/>
-    <gazebo reference="finhold_2">
-        <material>Gazebo/Red</material>
-    </gazebo>
 
     <!-- 3rd fin holder -->
     <joint name="finhold_3_joint" type="revolute">
@@ -81,9 +75,6 @@
     <link name="finhold_3">
         <xacro:finhold_body_desc />
     </link>/>
-    <gazebo reference="finhold_3">
-        <material>Gazebo/Red</material>
-    </gazebo>
 
     <!-- 2nd fin holder -->
     <joint name="finhold_4_joint" type="revolute">
@@ -96,9 +87,6 @@
     <link name="finhold_4">
         <xacro:finhold_body_desc />
     </link>/>
-    <gazebo reference="finhold_4">
-        <material>Gazebo/Red</material>
-    </gazebo>
 
     <!-- 1st fin -->
     <joint name="fin_1_joint" type="revolute">
@@ -112,9 +100,6 @@
     <link name="fin_1">
         <xacro:fin_body_desc />
     </link>
-    <gazebo reference="fin_1">
-        <material>Gazebo/Red</material>
-    </gazebo>
 
     <!-- 2nd fin -->
     <joint name="fin_2_joint" type="revolute">
@@ -128,9 +113,6 @@
     <link name="fin_2">
         <xacro:fin_body_desc />
     </link>
-    <gazebo reference="fin_2">
-        <material>Gazebo/Red</material>
-    </gazebo>
 
     <!-- 3rd fin -->
     <joint name="fin_3_joint" type="revolute">
@@ -144,9 +126,6 @@
     <link name="fin_3">
         <xacro:fin_body_desc />
     </link>
-    <gazebo reference="fin_3">
-        <material>Gazebo/Red</material>
-    </gazebo>
 
     <!-- 4th fin -->
     <joint name="fin_4_joint" type="revolute">
@@ -160,7 +139,5 @@
     <link name="fin_4">
         <xacro:fin_body_desc />
     </link>
-    <gazebo reference="fin_4">
-        <material>Gazebo/Red</material>
-    </gazebo>
+
 </robot>

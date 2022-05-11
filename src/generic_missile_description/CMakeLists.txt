@@ -24,7 +24,7 @@ endif()
 
 install(
   # DIRECTORY config gazebo meshes launch ros2_control urdf
-  DIRECTORY launch urdf
+  DIRECTORY launch urdf gazebo config
   DESTINATION share/${PROJECT_NAME}
 )
 
