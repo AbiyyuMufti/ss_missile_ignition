@@ -1,14 +1,35 @@
 controller_manager:
   ros__parameters:
-    update_rate: 100  # Hz
-
-    joint_trajectory_controller:
-      type: joint_trajectory_controller/JointTrajectoryController
+    update_rate: 10  # Hz
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-joint_trajectory_controller:
+    forward_position_controller:
+      type: forward_command_controller/ForwardCommandController
+    
+    position_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+joint_state_broadcaster:
+  ros_parameters:
+      joints:
+      - wing_1_joint
+      - wing_2_joint
+      - wing_3_joint
+      - wing_4_joint
+    interface_name: position
+
+forward_position_controller:
+  ros__parameters:
+    joints:
+      - wing_1_joint
+      - wing_2_joint
+      - wing_3_joint
+      - wing_4_joint
+    interface_name: position
+
+position_trajectory_controller:
   ros__parameters:
     joints:
       - wing_1_joint
@@ -18,3 +39,6 @@ joint_trajectory_controller:
     state_interfaces:
       - position
       - velocity
+    state_publish_rate: 200.0 # Defaults to 50
+    action_monitor_rate: 20.0 # Defaults to 20
+    open_loop_control: true

@@ -1,18 +1,33 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <ros2_control name="GazeboSystem" type="sysetem">
-        <hardware>
-            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-        </hardware>
-        <joint name="wing_1_joint" >
+
+    <xacro:macro name="wings_joint" params="joint_name">
+        <joint name="${joint_name}" >
             <command_interface name="position">
                 <param name="min">-1000</param>
                 <param name="max">1000</param>
             </command_interface>
             <state_interface name="position"/>
             <state_interface name="velocity"/>
-            <state_interface name="effort"/>
         </joint>
+    </xacro:macro>
+
+    <ros2_control name="GazeboSystem" type="sysetem">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <xacro:wings_joint joint_name="wing_1_joint"/>
+        <xacro:wings_joint joint_name="wing_2_joint"/>
+        <xacro:wings_joint joint_name="wing_3_joint"/>
+        <xacro:wings_joint joint_name="wing_4_joint"/>
+        <!-- <joint name="wing_1_joint" >
+            <command_interface name="position">
+                <param name="min">${-pi*2/3}</param>
+                <param name="max">${pi*2/3}</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint> -->
     </ros2_control>
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">

@@ -3,16 +3,21 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
     <xacro:include filename="missile_properties.xacro"/>
-    
+
+    <link name="world"/>
+    <gazebo reference="world">
+      <static>true</static>
+    </gazebo>
+  
     <!-- base link -->
     <!-- <link name="base_link"/> -->
 
     <!-- missile main body -->
-    <!-- <joint name="missile_joint" type="fixed">
-        <parent link="base_link"/>
+    <joint name="missile_joint" type="fixed">
+        <parent link="world"/>
         <child link="missile_body"/>
         <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint> -->
+    </joint>
     <link name="missile_body">
         <visual>
             <origin xyz="0 0 ${missile_length/2}"/>
